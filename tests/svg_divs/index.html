@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG et Divs</title>
+    <style>
+        body {
+            min-width: 1200px;
+            min-height: 800px;
+        }
+      #svg-container {
+        position: relative;
+        width: 100%;
+        height: 400px;
+      }
+
+      #form-in-picture {
+        position:absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+
+      .form-item {
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="svg-container">
+    <svg width="100%" height="100%" id="dessin" viewBox="0 0 1070 262">
+      <image xlink:href="alternat.PNG" x="0" y="0" height="262" width="1070" /></image>
+      <circle
+        id="l-place"
+        cx="571"
+        cy="147"
+        r="1"
+        stroke="none"
+        fill="none"
+      />
+      <circle
+        id="d1-place"
+        cx="106"
+        cy="212"
+        r="1"
+        stroke="none"
+        fill="none"
+      />
+      <circle
+        id="d2-place"
+        cx="945"
+        cy="69"
+        r="1"
+        stroke="none"
+        fill="none"
+      />
+      <circle
+        id="v2-place"
+        cx="662"
+        cy="11"
+        r="1"
+        stroke="none"
+        fill="none"
+      />
+      <circle
+        id="v1-place"
+        cx="337"
+        cy="173"
+        r="1"
+        stroke="none"
+        fill="none"
+      />
+    </svg>
+    <div id = "form-in-picture" >
+        <input id="L-input" class="form-item"></input>
+        <input id="d1-input" class="form-item"></input>
+        <input id="d2-input" class="form-item"></input>
+        <input id="v1-input" class="form-item"></input>
+        <input id="v2-input" class="form-item"></input>
+    </div>
+    <div id="form-out-picture">
+        <input id="J-input" ></input>
+        <br>
+        <input id="Cy-input"></input>
+        <br>
+        <input id="Qs-input" ></input>
+    </div>
+</div>
+    <script>
+      var svg_container = document.getElementById("svg-container");
+      var dessin = document.getElementById("dessin");
+
+      var l_place = document.getElementById("l-place");
+      var d1_place = document.getElementById("d1-place")
+      var d2_place = document.getElementById("d2-place")
+      var v1_place = document.getElementById("v1-place")
+      var v2_place = document.getElementById("v2-place")
+
+      var l_input = document.getElementById("L-input")
+      var d1_input = document.getElementById("d1-input")
+      var d2_input = document.getElementById("d2-input")
+      var v1_input = document.getElementById("v1-input")
+      var v2_input = document.getElementById("v2-input")
+      
+
+      var image_size = {
+        width : 1070,
+        height: 262,
+      }      
+
+      //   function setDessinToContainerSize() {
+      //     dessin.setAttribute("width", svg_container.getClientRects()[0].width);
+      //     dessin.setAttribute("height", svg_container.getClientRects()[0].width);
+      //   }
+      adjustPlaces()
+
+      function adjustPlaces() {
+        l_input.style.top = l_place.getClientRects()[0].top - 10 + 'px'
+        l_input.style.left = l_place.getClientRects()[0].left + 'px'
+
+        d1_input.style.top = d1_place.getClientRects()[0].top - 10 + 'px'
+        d1_input.style.left = d1_place.getClientRects()[0].left + 'px'
+
+        d2_input.style.top = d2_place.getClientRects()[0].top - 10 + 'px'
+        d2_input.style.left = d2_place.getClientRects()[0].left + 'px'
+
+        v1_input.style.top = v1_place.getClientRects()[0].top - 10 + 'px'
+        v1_input.style.left = v1_place.getClientRects()[0].left + 'px'
+        
+        v2_input.style.top = v2_place.getClientRects()[0].top - 10 + 'px'
+        v2_input.style.left = v2_place.getClientRects()[0].left + 'px'
+        
+      }
+
+        window.onresize = (e) => {
+            adjustPlaces()
+        };
+    </script>
+  </body>
+</html>
