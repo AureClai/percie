@@ -1,5 +1,30 @@
+#navbar {
+    color: black;
+}
+
 .footer {
     position: fixed;
     height: 75px;
     bottom:0;
+}
+
+.scenario-card {
+    width: 200px;
+    height: 232px;
+    text-align: center;
+    cursor: pointer;
+    margin-inline: 20;
+    padding: 20px;
+    border:solid white 1px;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.scenario-card:hover {
+    background-color: #efefef;
+    border-color: #292574;
+}
+
+.scenario-img {
+    width: 150px;
 }
